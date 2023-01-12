@@ -16,9 +16,9 @@ use App\Http\Controllers\Admin\DashboardContrller;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -36,6 +36,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::controller(DashboardContrller::class)->group(function () {
+        Route::get('/', 'Index');
         Route::get('/admin/dashboard', 'Index');
 
 

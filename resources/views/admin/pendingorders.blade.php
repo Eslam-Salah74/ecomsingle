@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-Dashboard
+Pending-Orders
 @endsection
 @section('css')
 @endsection

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-Dashboard
+Add-Product
 @endsection
 @section('css')
 @endsection

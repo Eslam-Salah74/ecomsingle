@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-Dashboard
+Canceled-Orders
 @endsection
 @section('css')
 @endsection

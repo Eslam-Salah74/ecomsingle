@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-Dashboard
+Add-Category
 @endsection
 @section('css')
 @endsection
