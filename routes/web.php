@@ -1,9 +1,15 @@
 <?php
 
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Admin\Controllers\TestController;
+use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardContrller;
+use App\Http\Controllers\Admin\SubCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,10 +41,37 @@ Route::middleware('auth')->group(function () {
 
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::controller(DashboardContrller::class)->group(function () {
+
+   Route::controller(DashboardContrller::class)->group(function () {
         Route::get('/', 'Index');
         Route::get('/admin/dashboard', 'Index');
+    });
 
+    Route::controller(CategoryController::class)->group(function () {
+
+        Route::get('/admin/add-category', 'Addcategory');
+        Route::get('/admin/all-category', 'Index');
+
+    });
+
+    Route::controller(SubCategoryController::class)->group(function () {
+
+        Route::get('/admin/add-subcategory', 'Addsubcategory');
+        Route::get('/admin/all-subcategory', 'Index');
+
+    });
+
+    Route::controller(ProductController::class)->group(function () {
+
+        Route::get('/admin/add-product', 'Addproduct');
+        Route::get('/admin/all-product', 'Index');
+
+    });
+
+    Route::controller(OrderController::class)->group(function () {
+
+        Route::get('/admin/pending-order', 'Index');
+        Route::get('/admin/canceled-order', 'Cancel');
 
     });
 
